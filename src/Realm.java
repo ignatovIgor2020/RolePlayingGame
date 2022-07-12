@@ -25,7 +25,7 @@ public class Realm implements FightCallback {
 
     private static void command(String string) throws IOException {
         //Если это первый запуск, то мы должны создать игрока, именем будет служить первая введенная строка из консоли
-        if ( Realm.player == null) {
+        if (Realm.player == null) {
             Realm.player = new Player(
                     string,
                     100,
@@ -42,7 +42,7 @@ public class Realm implements FightCallback {
         switch (string) {
             case "1": {
                 System.out.println("Торговец еще не приехал");
-                command( Realm.br.readLine());
+                command(Realm.br.readLine());
             }
             break;
             case "2": {
@@ -57,11 +57,11 @@ public class Realm implements FightCallback {
                 break;
             case "нет": {
                 printNavigation();
-                command( Realm.br.readLine());
+                command(Realm.br.readLine());
             }
         }
         //Снова ждем команды от пользователя
-        command( Realm.br.readLine());
+        command(Realm.br.readLine());
     }
 
     private static void printNavigation() {
@@ -72,13 +72,13 @@ public class Realm implements FightCallback {
     }
 
     private static void commitFight() {
-        battle.fight( Realm.player, createMonster(), new FightCallback() {
+        battle.fight(Realm.player, createMonster(), new FightCallback() {
             @Override
             public void fightWin() {
-                System.out.println(String.format("%s победил! Теперь у вас %d опыта и %d золота, а также осталось %d едениц здоровья.",  Realm.player.getName(),  Realm.player.getPractice(),  Realm.player.getGold(),  Realm.player.getHealth()));
+                System.out.println(String.format("%s победил! Теперь у вас %d опыта и %d золота, а также осталось %d едениц здоровья.", Realm.player.getName(), Realm.player.getPractice(), Realm.player.getGold(), Realm.player.getHealth()));
                 System.out.println("Желаете продолжить поход или вернуться в город? (да/нет)");
                 try {
-                    command( Realm.br.readLine());
+                    command(Realm.br.readLine());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -88,7 +88,6 @@ public class Realm implements FightCallback {
             public void fightLost() {
 
             }
-
 
 
         });

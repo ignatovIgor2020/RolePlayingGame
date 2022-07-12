@@ -7,14 +7,14 @@ public abstract class AbstractEntity implements Fighter {
     private int hitStrenght; // сила удара
     private String name; // имя сущности
 
-    public AbstractEntity(String name, int health,int hitStrenght,  int dexterity, int practice, int gold) {
+    public AbstractEntity(String name, int health, int hitStrenght, int dexterity, int practice, int gold) {
         this.name = name;
         this.health = health;
         this.gold = gold;
         this.dexterity = dexterity;
         this.practice = practice;
         this.hitStrenght = hitStrenght;
-        
+
     }
 
     public int getHealth() {
@@ -67,9 +67,9 @@ public abstract class AbstractEntity implements Fighter {
 
     @Override
     public int attack() {
-        if ((dexterity * 3) > ((int)(Math.random() * 100)))
+        if ((dexterity * 3) > ((int) (Math.random() * 100)))
             return hitStrenght;
-        else 
+        else
             return 0;
     }
 

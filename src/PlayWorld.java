@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class PlayWorld  {
+public class PlayWorld {
     public static void main(String[] args) {
         //Инициализируем BufferedReader
         Realm.br = new BufferedReader(new InputStreamReader(System.in));
@@ -21,7 +21,7 @@ public class PlayWorld  {
 
     private static void command(String string) throws IOException {
         //Если это первый запуск, то мы должны создать игрока, именем будет служить первая введенная строка из консоли
-        if ( Realm.player == null) {
+        if (Realm.player == null) {
             Realm.player = new Player(
                     string,
                     100,
@@ -38,7 +38,7 @@ public class PlayWorld  {
         switch (string) {
             case "1": {
                 System.out.println("Торговец еще не приехал");
-                command( Realm.br.readLine());
+                command(Realm.br.readLine());
             }
             break;
             case "2": {
@@ -53,11 +53,11 @@ public class PlayWorld  {
                 break;
             case "нет": {
                 printNavigation();
-                command( Realm.br.readLine());
+                command(Realm.br.readLine());
             }
         }
         //Снова ждем команды от пользователя
-        command( Realm.br.readLine());
+        command(Realm.br.readLine());
     }
 
 
@@ -69,13 +69,13 @@ public class PlayWorld  {
     }
 
     private static void commitFight() {
-        Realm.battle.fight( Realm.player, createMonster(), new FightCallback() {
+        Realm.battle.fight(Realm.player, createMonster(), new FightCallback() {
             @Override
             public void fightWin() {
-                System.out.println(String.format("%s победил! Теперь у вас %d опыта и %d золота, а также осталось %d едениц здоровья.",  Realm.player.getName(),  Realm.player.getPractice(),  Realm.player.getGold(),  Realm.player.getHealth()));
+                System.out.println(String.format("%s победил! Теперь у вас %d опыта и %d золота, а также осталось %d едениц здоровья.", Realm.player.getName(), Realm.player.getPractice(), Realm.player.getGold(), Realm.player.getHealth()));
                 System.out.println("Желаете продолжить поход или вернуться в город? (да/нет)");
                 try {
-                    command( Realm.br.readLine());
+                    command(Realm.br.readLine());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -48,7 +48,7 @@ public class Battle {
             //Вызываем коллбэк, что мы проиграли
             fightCallback.fightLost();
             return true;
-        } else if(defenderHealth <= 0) {
+        } else if (defenderHealth <= 0) {
             //Если здоровья больше нет и защищающийся – это монстр, то мы забираем от монстра его опыт и золото
             System.out.println(String.format("Враг повержен! Вы получаете %d опыт и %d золота", defender.getPractice(), defender.getGold()));
             attacker.setPractice(attacker.getPractice() + defender.getPractice());

@@ -1,8 +1,8 @@
-public class Merchant implements Seller{
+public class Merchant implements Seller {
     @Override
-    public String sell(Goods goods){
+    public String sell(Goods goods) {
         String result = "";
-        if(goods == Goods.POTION){
+        if (goods == Goods.POTION) {
             result = "potion";
         }
         return result;
